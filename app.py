@@ -20,7 +20,7 @@ def predict():
     df = pd.get_dummies(df, columns=['COUNTY', 'SUBCOUNTY'],)
     column_order = df.columns.drop('yield_per_ha')
 
-   in_data = pd.DataFrame(request.json, index=[0])
+    in_data = pd.DataFrame(request.json, index=[0])
     county = in_data['county']
     subcounty = in_data['subcounty']
     area = in_data['area']
