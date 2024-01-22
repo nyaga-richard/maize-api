@@ -19,12 +19,14 @@ def predict():
     all_subcounty_names = counties_and_subcounties['SUBCOUNTY'].unique()
     df = pd.get_dummies(df, columns=['COUNTY', 'SUBCOUNTY'],)
     column_order = df.columns.drop('yield_per_ha')
-    county = request.form.get('county')
-    subcounty = request.form.get('subcounty')
-    area = request.form.get('area')
-    temperature = request.form.get('temperature')
-    humidity = request.form.get('humidity')
-    precipitation = request.form.get('precipitation')
+
+   in_data = pd.DataFrame(request.json, index=[0])
+    county = in_data['county']
+    subcounty = in_data['subcounty']
+    area = in_data['area']
+    temperature = in_data['temperature']
+    humidity = in_data['humidity']
+    precipitation = in_data['precipitation']
     
 
     input_data = pd.DataFrame({
