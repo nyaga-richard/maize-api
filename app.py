@@ -47,14 +47,14 @@ def predict():
         all_subcounty_names = all_subcounty_names[all_subcounty_names != available_subcounty_name]
         
         
-    county = pd.DataFrame({'COUNTY_' + available_county_name: [1]}, index=input_data.index)
-    subcounty = pd.DataFrame({'SUBCOUNTY_' + available_subcounty_name: [1]}, index=input_data.index)
+    thiscounty = pd.DataFrame({'COUNTY_' + available_county_name: [1]}, index=input_data.index)
+    thissubcounty = pd.DataFrame({'SUBCOUNTY_' + available_subcounty_name: [1]}, index=input_data.index)
     # Create DataFrames for missing columns
     missing_county_columns = pd.DataFrame(0, columns=['COUNTY_' + county_name for county_name in all_county_names], index=input_data.index)
     missing_subcounty_columns = pd.DataFrame(0, columns=['SUBCOUNTY_' + subcounty_name for subcounty_name in all_subcounty_names], index=input_data.index)
 
     # Concatenate the missing columns with the original DataFrame
-    input_data = pd.concat([input_data,county, subcounty, missing_county_columns, missing_subcounty_columns], axis=1)
+    input_data = pd.concat([input_data, thiscounty, thissubcounty, missing_county_columns, missing_subcounty_columns], axis=1)
 
     # Now, the input_data DataFrame includes missing columns for both 'county' and 'subcounty' after removing available names
     input_data.drop(columns=['COUNTY', 'SUBCOUNTY'], inplace=True)
