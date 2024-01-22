@@ -28,12 +28,12 @@ def predict():
     
 
     input_data = pd.DataFrame({
-    'COUNTY':['BARINGO'],
-    'SUBCOUNTY':['Eldama Ravine'],
-    'Area Ha LR 2018':[200],
-    'Temperature': [30],
-    'Humidity': [65.0],
-    'precipitation': [60.0],
+    'COUNTY':[county],
+    'SUBCOUNTY':[subcounty],
+    'Area Ha LR 2018':[area],
+    'Temperature': [temperature],
+    'Humidity': [humidity],
+    'precipitation': [precipitation],
      # One-hot encoded subcounty variable
     # Include all relevant features
 })
