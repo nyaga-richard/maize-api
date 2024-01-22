@@ -61,7 +61,7 @@ def predict():
 
     # Reorder the columns in the input data to match the training data
     input_data = input_data[column_order]
-    result = model.predict(input_data)[0]
+    result = model.predict_on_batch(input_data)[0]
     
     return jsonify({'yield in kg per ha':str(result)})
 if __name__ == '__main__':
