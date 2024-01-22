@@ -9,7 +9,7 @@ def index():
     return "Hello world"
 @app.route('/predict',methods=['POST'])
 def predict():
-    counties_and_subcounties=pd.read_csv('C:/Users/nyaga/Desktop/project model/training_data.csv')
+    counties_and_subcounties=pd.read_csv('training_data.csv')
     df = pd.read_csv('C:/Users/nyaga/Desktop/project model/training_data.csv')
     df['Quantity Ton LR 2018'] = df['Quantity Ton LR 2018'].str.replace(',', '').astype(float)
     df['Area Ha LR 2018'] = df['Area Ha LR 2018'].str.replace(',', '').astype(float)
