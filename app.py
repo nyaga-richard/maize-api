@@ -21,25 +21,7 @@ def predict():
     column_order = df.columns.drop('yield_per_ha')
 
     input_data = pd.DataFrame(request.json, index=[0])
-    # county = in_data['county']
-    # subcounty = in_data['subcounty']
-    # area = in_data['area']
-    # temperature = in_data['temperature']
-    # humidity = in_data['humidity']
-    # precipitation = in_data['precipitation']
-    
 
-#     input_data = pd.DataFrame({
-#     'COUNTY':[county],
-#     'SUBCOUNTY':[subcounty],
-#     'Area Ha LR 2018':[area],
-#     'Temperature': [temperature],
-#     'Humidity': [humidity],
-#     'precipitation': [precipitation],
-#      # One-hot encoded subcounty variable
-#     # Include all relevant features
-# })
-# Remove the available 'county' and 'subcounty' names from the respective arrays
     if 'COUNTY' in input_data:
         available_county_name = input_data['COUNTY'].iloc[0]
         all_county_names = all_county_names[all_county_names != available_county_name]
